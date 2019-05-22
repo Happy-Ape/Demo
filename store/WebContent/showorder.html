@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=EDGE">
+<title>订单详情</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-ico" />
+<link rel="stylesheet" href="css/big.css" />
+<link rel="stylesheet" href="css/my_im.css" />
+
+<link rel="stylesheet" href="css/Product.css" />
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<link rel="stylesheet" href="css/gadget.css" />
+<script type="text/javascript" src="js/gadget.js"></script>
+<script type="text/javascript" src="js/inam.js"></script>
+<script type="text/javascript" src="js/jquery.enlarge.min.js"></script>
+<!--		<script type="text/javascript" src="js/Product.js"></script>-->
+<style type="text/css">
+.my_img {
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border: 1px solid #E5E5E5;
+	float: left;
+	position: relative;
+}
+
+.my_img:hover {
+	border-color: #009688;
+}
+
+.my_img img {
+	max-height: 100px;
+	max-width: 100px;
+	vertical-align: middle;
+}
+
+.rembox {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background-color: #009688;
+	cursor: pointer;
+}
+
+.rembox:hover {
+	background-color: #cc3300;
+}
+
+body {
+	font-family: "微软雅黑";
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	/* z-index越大 就在上面 */
+	z-index: 1001;
+	-moz-opacity: 0.6;
+	opacity: .60;
+	filter: alpha(opacity = 60);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	/*border: 16px solid orange;*/
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+</style>
+</head>
+
+<body id="body">
+	<div style="clear: both;"></div>
+	<div id="light" class="white_content" style="display: none">
+		<form method="post" id="form21">
+			<input type="hidden" id="uid" name="uid"
+				value="${sessionScope.user.uid }"> <br> 姓名 :<input
+				type="text" name="name" id="name" style="border: 0px; color: blue"
+				readonly="readonly" value="${sessionScope.user.sname }" /> <br>
+			用户名 :<input type="text" name="username" id="username"
+				style="border: 0px; color: blue" readonly="readonly"
+				value="${sessionScope.user.suser }" /> <br>登录密码:<input
+				type="password" name="text" id="password"
+				style="border: 0px; color: blue" readonly="readonly"
+				value="${sessionScope.user.spwd }" /> <br>手机号:<input
+				type="text" name="phone" id="phone" style="border: 0px; color: blue"
+				readonly="readonly" value="${sessionScope.user.sphone }" /> <br>
+			性别:<input type="text" name="ssex" id="
+				ssex"
+				style="border: 0px; color: blue" readonly="readonly"
+				value="${sessionScope.user.ssex }" /> <br>出生日期:<input
+				type="text" name="birth" id="birth" style="border: 0px; color: blue"
+				readonly="readonly" value="${sessionScope.user.dbirth }" /> <br>Email:<input
+				type="text" name="email" id="email" style="border: 0px; color: blue"
+				readonly="readonly" value="${sessionScope.user.semail }" /> <br>地址:<input
+				type="text" name="address" id="address"
+				style="border: 0px; color: blue" readonly="readonly"
+				value="${sessionScope.user.saddress }" /> <br> <input
+				type="button" value="修改个人信息" onclick="three()">
+			&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="修改密码"
+				onclick="five()"><br>
+		</form>
+		<a onclick="two()"><input type="button" value="关闭"></a>
+	</div>
+	<div id="fade" class="black_overlay"></div>
+
+	<div id="light1" class="white_content">
+		<h2>个人资料</h2>
+		<form id="form22">
+			<input type="hidden" id="uid1" name="uid1"
+				value="${sessionScope.user.uid }"> <br> 姓名 :<input
+				type="text" name="name1" id="name1"
+				value="${sessionScope.user.sname }" /> <br> 用户名 :<input
+				type="text" name="username1" id="username1"
+				value="${sessionScope.user.suser }" /> <br>手机号:<input
+				type="text" name="phone1" id="phone1"
+				value="${sessionScope.user.sphone }" /> <br> <input
+				type="hidden" name="ssex1" id="ssex1"
+				value="${sessionScope.user.ssex }" /> 性别:<input type="radio"
+				name="sex1" value="男" />男<input type="radio" name="sex1" value="女" />女<br>出生日期:<input
+				type="Date" name="birth1" id="birth1"
+				value="${sessionScope.user.dbirth }" /> <br>Email:<input
+				type="text" name="email1" id="email1"
+				value="${sessionScope.user.semail }" /> <br>地址:<input
+				type="text" name="address1" id="address1"
+				value="${sessionScope.user.saddress }" /> <br> <input
+				type="button" value="提交" onclick="save()"><br>
+		</form>
+		<a href="javascript:void(0)" onclick="four()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade1" class="black_overlay"></div>
+
+
+	<div id="light2" class="white_content">
+		<h2>修改密码</h2>
+		<form id="form23">
+			<input type="hidden" id="uid2" name="uid2" value=""> <br>旧密码:<input
+				type="password" name="password0" id="password0" /><br> 新密码:<input
+				type="password" name="password1" id="password1" /><br>确认密码:<input
+				type="password" name="password2" id="password2" value="" /> <br>
+			<br> <input type="button" value="提交" onclick="savePassword()"><br>
+		</form>
+		<a href="javascript:void(0)" onclick="six()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade2" class="black_overlay"></div>
+
+
+	<div class="dengl">
+		<div>
+			<ul class="dengul">
+				<li>您好！欢迎来到电商网城，够你所购&nbsp;&nbsp; <a href="login.html"
+					id="login">登录</a>&nbsp;&nbsp; <a href="register.html" id="reg">注册</a><a
+					href="http://localhost:8080/store/UserWeb?m=exit" id="exit"
+					style="visibility: hidden">退出登录</a>
+				</li>
+				<li class="dengfl dengo"><a id="dengomy" onclick='one()'>用户中心</a></li>
+				<li class="dengo"><a id="car" href="myshop.jsp">我的购物车</a></li>
+				<li class="dengo"><a id="denmyorder" href="myorder.html">我的订单</a>
+				</li>
+				<li class="dengo"><a href="help.html">帮助中心</a></li>
+				<li class="dengo"><a href="feedback.html">意见反馈</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="zhandlog">
+
+		<div class="logsu">
+			<a href="index.jsp"><img class="logo" src="imgeas/logo1.jpg"></a>
+			<div class="zhan"></div>
+			<div class="sosu"></div>
+		</div>
+	</div>
+
+	<header>
+	<div class="heashopt">
+		<div class="heashoptop">
+			<a class="heashopa">订单详情</a>&nbsp;<a class="heashopa"
+				href="javascript:history.go(-1);">上一页</a>
+		</div>
+		<div id="pro"></div>
+	</div>
+	</header>
+</body>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$
+								.ajax({
+									url : "http://localhost:8080/store/IsUserLogin",
+									type : "post",
+									success : function(data) {
+										if (data == 1) {
+											document.getElementById('login').style.display = 'none';
+											document.getElementById('reg').style.display = 'none';
+											document.getElementById('exit').style.visibility = "visible";
+											document.getElementById('car').style.visibility = "visible";
+											document
+													.getElementById('denmyorder').style.visibility = "visible";
+											document.getElementById('dengomy').style.visibility = "visible";
+
+										} else {
+											document.getElementById('login').style.visibility = 'visible';
+											document.getElementById('reg').style.visibility = 'visible';
+											document.getElementById('exit').style.visibility = "hidden";
+											document.getElementById('car').style.visibility = "hidden";
+											document
+													.getElementById('denmyorder').style.visibility = "hidden";
+											document.getElementById('dengomy').style.visibility = "hidden";
+										}
+									}
+								})
+
+					})
+	function one() {
+		$(document)
+				.ready(
+						function() {
+							$
+									.ajax({
+										url : "http://localhost:8080/store/IsUserLogin",
+										type : "post",
+										success : function(data) {
+											if (data == 1) {
+												document
+														.getElementById('light').style.display = 'block';
+												document.getElementById('fade').style.display = 'block';
+											} else {
+												alert("你尚未登录");
+												//	window.location.href = "http://localhost:8080/store/productlist.jsp";
+											}
+										}
+									})
+						})
+	}
+
+	function two() {
+		$("form21").submit();
+		document.getElementById('light').style.display = 'none';
+		document.getElementById('fade').style.display = 'none';
+	}
+
+	function three() {
+		document.getElementById('light1').style.display = 'block';
+		document.getElementById('fade1').style.display = 'block';
+		var sex = document.getElementById('ssex1').value;
+		if (sex == "男") {
+			$(":radio[name='sex1'][value='男']").prop("checked", "checked");
+		} else {
+			$(":radio[name='sex1'][value='女']").prop("checked", "checked");
+		}
+	}
+
+	function four() {
+		$("form22").submit();
+		document.getElementById('light1').style.display = 'none';
+		document.getElementById('fade1').style.display = 'none'
+	}
+
+	function save() {
+		$.ajax({
+			url : "http://localhost:8080/store/UserWeb?m=save",
+			type : "post",
+			data : $('#form22').serialize(),
+			success : function(data) {
+				if (data == 1) {
+					alert("信息修改成功");
+					location.reload();
+					one();
+				} else if (data == -1) {
+					alert("该手机号已经被绑定");
+				} else {
+					alert("修改失败");
+				}
+			}
+		})
+	}
+
+	function five() {
+		document.getElementById('light2').style.display = 'block';
+		document.getElementById('fade2').style.display = 'block';
+	}
+
+	function six() {
+		$("form23").submit();
+		document.getElementById('light2').style.display = 'none';
+		document.getElementById('fade2').style.display = 'none';
+	}
+	function savePassword() {
+		$
+				.ajax({
+					url : "http://localhost:8080/store/UserWeb?m=savepass",
+					type : "post",
+					data : $('#form23').serialize(),
+					success : function(data) {
+						if (data == -2) {
+							alert("新密码输入不一致");
+						} else if (data == 1) {
+							alert("修改已更改，请重新登录");
+							window.location.href = "http://localhost:8080/store/login.html";
+						} else if (data == -1) {
+							alert("旧密码错误");
+						} else {
+							alert("修改失败");
+						}
+					}
+				})
+	}
+	$(document)
+			.ready(
+					function() {
+						var url = location.href;
+						var strs = {};
+						if (url.indexOf("?") != -1) {
+							var str = url.substr(1);
+							strs = str.split("=");
+						}
+						$
+								.ajax({
+									url : "http://localhost:8080/store/OrderWeb?m=xqorder",
+									type : "post",
+									dataType : "json",
+									data : {
+										"id" : strs[1]
+									},
+									success : function(data) {
+										var html = '<div align="center">';
+										if (data != null) {
+											html += '<table>'
+											html += '<tr><td>订单号:</td><td>'
+													+ data[1] + '</td></tr>';
+											html += '<tr><td>用户名:</td><td>'
+													+ data[2] + '</td></tr>';
+											html += '<tr><td>真实姓名:</td><td>'
+													+ data[3] + '</td></tr>';
+											var product = data[17];
+											for (i = 0; i < product.length; i++) {
+												html += '<tr><td>商品名:</td><td>'
+														+ product[i].sname
+														+ '</td></tr>';
+												html += '<tr><td><img src="http://localhost:8080/'+product[i].simg+'" style="width:120px;height:120px"></td></tr>"';
+												html += '<tr><td>数量：</td><td>'
+														+ product[i].number
+														+ '</td></tr><tr><td>金额:</td><td>'
+														+ product[i].totalPrice
+														+ '</td></tr>';
+											}
+											html += '<tr><td>支付时间:</td><td>'
+													+ data[6] + '</td></tr>';
+											html += '<tr><td>支付方式:</td><td>'
+													+ data[7] + '</td></tr>';
+											html += '<tr><td>订单金额:</td><td>'
+													+ data[5] + '</td></tr>';
+											html += '<tr><td>备注:</td><td>'
+													+ data[10] + '</td></tr>';
+											html += '<tr><td>物流:</td><td>'
+													+ data[8] + '</td></tr>';
+											html += '<tr><td>订单状态:</td><td>'
+													+ data[9] + '</td></tr>';
+											html += '<tr><td>审核人:</td><td>'
+													+ data[11] + '</td></tr>';
+											html += '<tr><td>审核时间:</td><td>'
+													+ data[12] + '</td></tr>';
+											html += '<tr><td>收货人:</td><td>'
+													+ data[13] + '</td></tr>';
+											html += '<tr><td>收货地址:</td><td>'
+													+ data[14] + '</td></tr>';
+											html += '<tr><td>收货电话:</td><td>'
+													+ data[15] + '</td></tr>';
+											html += '<tr><td>邮编:</td><td>'
+													+ data[16] + '</td></tr>';
+											html += '</table>'
+										} else {
+											html += '<h3 style="margin-left:200px">订单已失效</h3>';
+										}
+										html += '</div>';
+										$("#pro").html(html);
+									}
+								})
+					})
+</script>
+</html>

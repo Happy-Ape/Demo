@@ -1,0 +1,62 @@
+[
+	{
+		"children": [
+			{
+				"children": [],
+				"id": 3,
+				"text": "华为手机"
+			},
+			{
+				"children": [],
+				"id": 4,
+				"text": "小米手机11111111"
+				
+			},
+			{
+				"children": [],
+				"id": 3,
+				"text": "华为手机"
+			},
+			{
+				"children": [],
+				"id": 4,
+				"text": "小米手机"
+				
+			},{
+				"children": [],
+				"id": 3,
+				"text": "华为手机"
+			},
+			{
+				"children": [],
+				"id": 4,
+				"text": "小米手机"
+				
+			},{
+				"children": [],
+				"id": 3,
+				"text": "华为手机"
+			},
+			{
+				"children": [],
+				"id": 4,
+				"text": "小米手机"
+				
+			}
+		],
+		"id": 1,
+		"text": "手机"
+	},
+	{
+		"children": [
+			{
+				"children": [],
+				"id": 5,
+				"text": "冰箱"
+			}
+		],
+		"id": 2,
+		"text": "家电"
+		
+	}
+]

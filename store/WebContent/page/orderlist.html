@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--  参考 http://www.jeasyui.net/demo/504.html -->
+<title>订单列表</title>
+<!-- 载入easyui样式及图标样式  注意该一下路径-->
+<link rel="stylesheet" type="text/css"
+	href="../easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+<link rel="stylesheet" href="../common/css/sccl.css">
+<link rel="stylesheet" href="../common/css/layui.css">
+<link rel="stylesheet" href="../common/iconfont/1.0.1/iconfont.css" />
+<link rel="stylesheet" href="../common/css/healthmanagement.css" />
+<!-- 载入jquery支持文件（必须写在其他js文件前）、easyui支持文件、easyui中文支持文件 -->
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+<style type="text/css">
+.my_img {
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border: 1px solid #E5E5E5;
+	float: left;
+	position: relative;
+}
+
+.my_img:hover {
+	border-color: #009688;
+}
+
+.my_img img {
+	max-height: 100px;
+	max-width: 100px;
+	vertical-align: middle;
+}
+
+.rembox {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background-color: #009688;
+	cursor: pointer;
+}
+
+.rembox:hover {
+	background-color: #cc3300;
+}
+
+body {
+	font-family: "微软雅黑";
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	/* z-index越大 就在上面 */
+	z-index: 1001;
+	-moz-opacity: 0.6;
+	opacity: .60;
+	filter: alpha(opacity = 60);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	/*border: 16px solid orange;*/
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+	<h2>订单列表</h2>
+
+	<div style="clear: both;"></div>
+	<div id="light" class="white_content" style="display: none">
+		<form method="post" action="">
+			<input type="hidden" id="uid" name="uid"> 订单号 :<input
+				type="text" name="order_code" id="order_code"
+				style="border: 0px; color: blue" readonly="readonly" /> <br>
+			用户名 :<input type="text" name="user" id="user"
+				style="border: 0px; color: blue" readonly="readonly" /> <br>
+			购买者姓名:<input type="text" name="name" id="name"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			购买商品:<input type="text" name="sname" id="sname"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			商品图片:<br> <img src="" id="img" name="img" width='180px'
+				height='180px'></img><br> 商品类别:<input type="text" name="cate"
+				id="cate" style="border: 0px; color: blue" readonly="readonly" /><br>
+			商品数量:<input type="text" name="spnumber" id="spnumber"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			商品单价:<input type="text" name="nprice" id="nprice"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			合计金额:<input type="text" name="totalprice" id="totalprice"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			下单时间:<input type="text" name="dgname" id="dgname"
+				style="border: 0px; width: 200px; color: blue" readonly="readonly" /><br>
+			付款方式:<input type="text" name="spaytype" id="spaytype"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			发货方式:<input type="text" name="sendtype" id="sendtype"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			订单反馈:<input type="text" name="smsg" id="smsg"
+				style="border: 0px; color: blue" readonly="readonly" /><br>审核状态:<input
+				type="text" name="sstatus" id="sstatus"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			审核人:<input type="text" name="sauser" id="sauser"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			审核时间:<input type="text" name="dadate" id="dadate"
+				style="border: 0px; width: 200px; color: blue" readonly="readonly" /><br>
+			收货人:<input type="text" name="ssname" id="ssname"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			收货地址:<input type="text" name="ssaddress" id="ssaddress"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			联系电话:<input type="text" name="ssphone" id="ssphone"
+				style="border: 0px; color: blue" readonly="readonly" /><br>
+			邮编地址:<input type="text" name="sscode" id="sscode"
+				style="border: 0px; color: blue" readonly="readonly" /><br> <input
+				type="button" value="修改" onclick="three()">
+		</form>
+		<a href="orderlist.html" onclick="two()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade" class="black_overlay"></div>
+
+
+	<div style="clear: both;"></div>
+	<div id="light1" class="white_content" style="display: none">
+		<form method="post"
+			action="http://localhost:8080/store/OrderWeb?m=edit">
+			<input type="hidden" id="itemid1" name="itemid1">
+			<input type="hidden" id="uid1" name="uid1"> <br> 用户名 :<input
+				type="text" name="user1" id="user1" /> <br> 购买者姓名:<input
+				type="text" name="name1" id="name1" /><br> 购买商品:<input
+				type="text" name="sname1" id="sname1" /><br> 商品数量:<input
+				type="text" name="spnumber1" id="spnumber1"><br> 商品单价:<input
+				type="text" name="nprice1" id="nprice1"><br> 下单时间:<input
+				type="text" name="dgname1" id="dgname1" style="width: 150px"/><br> 付款方式: <input
+				type="radio" name="spaytype1" id="spaytype1" value="支付宝" />支付宝&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="spaytype1" id="spaytype1" value="微信" />微信&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="spaytype1" id="spaytype1" value="银联" />银联
+			<br> 发货方式:<input type="text" name="sendtype1" id="sendtype1" /><br>
+			订单反馈:<input type="text" name="smsg1" id="smsg1" /><br> 审核状态:<input
+				type="radio" name="sstatus1" id="sstatus1" value="2" />审核通过&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sstatus1" id="sstatus1" value="3" />审核未通过&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="sstatus1" id="sstatus1" value="1" />未审核
+			<br> 审核人:<input type="text" name="sauser1" id="sauser1" /><br>
+			审核时间:<input type="text" name="dadate1" style="width: 150px" id="dadate1" /><br> 收货人:<input
+				type="text" name="ssname1" id="ssname1" /><br> 收货地址:<input
+				type="text" name="ssaddress1" id="ssaddress1" /><br> 联系电话:<input
+				type="text" name="ssphone1" id="ssphone1" /><br> 邮编地址:<input
+				type="text" name="sscode1" id="sscode1" /><br> <input
+				type="submit" value="修改">
+		</form>
+		<a href="orderlist.html" onclick="four()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade1" class="black_overlay"></div>
+
+
+	<div style="margin: 20px 0;"></div>
+	<table id="dg" title="订单列表" style="width: 800px; height: 400px"
+		data-options="rownumbers:true,singleSelect:true,pagination:true,url:'http://localhost:8080/store/OrderWeb?m=list',method:'get',toolbar:'#tb'">
+		<thead>
+			<tr>
+				<!--  field 和你javaean属性一样 -->
+				<th data-options="field:'itemid',width:80">ID</th>
+				<th data-options="field:'orderId',width:80">订单ID</th>
+				<th data-options="field:'nid',width:100">商品ID</th>
+				<th data-options="field:'order_code',width:150">订单号</th>
+				<th data-options="field:'suser',width:120">用户名</th>
+				<th data-options="field:'gmname',width:120">购买者姓名</th>
+				<th data-options="field:'sname',width:120">商品</th>
+				<th data-options="field:'ncount',width:100">数量</th>
+				<th data-options="field:'nprice',width:90">单价</th>
+				<th data-options="field:'ntotalprice',width:100">合计金额</th>
+			</tr>
+		</thead>
+	</table>
+	<!-- 搜索框 -->
+	<div id="tb">
+		姓名<input type="text" name="standard.name" id="qName" />  订单ID <input
+			type="text" name="standard.itemId" id="qItemId" />  商品 <input
+			type="text" name="standard.spName" id="qSpName" /> <a
+			id="standardQueryBtn" href="javascript:void(0)"
+			class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			var pager = $('#dg').datagrid().datagrid('getPager');
+			$('#dg').datagrid('hideColumn', 'itemid');
+			$('#dg').datagrid('hideColumn', 'orderId');
+			$('#dg').datagrid('hideColumn', 'nid');
+			pager.pagination({
+				buttons : [ {
+					iconCls : 'icon-remove',
+					handler : function() {
+						remove();
+					}
+				}, {
+					iconCls : 'icon-tip',
+					handler : function() {
+						one();
+					}
+				}, {
+					iconCls : 'icon-edit',
+					handler : function() {
+						three();
+					}
+				} ]
+			});
+		})
+		$("#standardQueryBtn").click(function() {
+
+			$("#dg").datagrid("load", {
+				"standard.name" : $("#qName").val(),
+				"standard.itemId" : $("#qItemId").val(),
+				"standard.spName" : $("#qSpName").val()
+			});
+		});
+
+		function remove() {
+			var row = $('#dg').datagrid('getSelected');
+			var msg = "您确定要删除该数据吗？";
+			if (confirm(msg) == true) {
+				$
+						.ajax({
+							url : "http://localhost:8080/store/OrderWeb?m=del",
+							type : "post",
+							data : {
+								"id" : row.orderId
+							},
+							success : function(data) {
+								if (data !=0) {
+									alert("删除成功");
+									window.location.href = "http://localhost:8080/store/page/orderlist.html";
+								} else {
+									alert("删除失败");
+								}
+							}
+						})
+			}
+		}
+		function one() {
+			var row = $('#dg').datagrid('getSelected');
+			document.getElementById('light').style.display = 'block';
+			document.getElementById('fade').style.display = 'block';
+			$(document)
+					.ready(
+							function() {
+								$
+										.ajax({
+											url : "http://localhost:8080/store/OrderWeb?m=more",
+											type : "post",
+											data : {
+												"id" : row.itemid
+											},
+											dataType : "json",
+											success : function(data) {
+												console.log(data);
+												//alert(data[0]);
+												document.getElementById("uid").value = data[0];
+												document
+														.getElementById("order_code").value = data[1];
+												document.getElementById("user").value = data[2];
+												document.getElementById("name").value = data[3];
+												document
+														.getElementById("sname").value = data[4];
+												document.getElementById("cate").value = data[5];
+												document
+														.getElementById("spnumber").value = data[6];
+												document
+														.getElementById("nprice").value = row.nprice;
+												document
+														.getElementById("totalprice").value = data[7];
+												document
+														.getElementById("dgname").value = data[8];
+												document
+														.getElementById("spaytype").value = data[9];
+												document
+														.getElementById("sendtype").value = data[10];
+												document
+														.getElementById("sstatus").value = data[11];
+												document.getElementById("smsg").value = data[12];
+												document
+														.getElementById("sauser").value = data[13];
+												document
+														.getElementById("dadate").value = data[14];
+												document
+														.getElementById("ssname").value = data[15];
+												document
+														.getElementById("ssaddress").value = data[16];
+												document
+														.getElementById("ssphone").value = data[17];
+												document
+														.getElementById("sscode").value = data[18];
+												$('#img').attr(
+														'src',
+														'http://localhost:8080/'
+																+ data[19]);
+											}
+										})
+							})
+		}
+
+		function two() {
+			$("form")[0].submit();
+			document.getElementById('light').style.display = 'none';
+			document.getElementById('fade').style.display = 'none';
+
+		}
+		function three() {
+			document.getElementById('light1').style.display = 'block';
+			document.getElementById('fade1').style.display = 'block';
+			var row = $('#dg').datagrid('getSelected');
+			$(document)
+					.ready(
+							function() {
+								$
+										.ajax({
+											url : "http://localhost:8080/store/OrderWeb?m=more",
+											type : "post",
+											data : {
+												"id" : row.itemid
+											},
+											dataType : "json",
+											success : function(data) {
+												document.getElementById("itemid1").value = row.itemid;
+												document.getElementById("uid1").value = data[0];
+												document
+														.getElementById("user1").value = data[2];
+												document
+														.getElementById("name1").value = data[3];
+												document
+														.getElementById("sname1").value = data[4];
+												document
+														.getElementById("spnumber1").value = data[6];
+												document
+														.getElementById("nprice1").value = row.nprice;
+												document
+														.getElementById("dgname1").value = data[8];
+												//document.getElementById("spaytype1").value = data[9];
+												if (data[9] = "支付宝") {
+													$(
+															":radio[name='spaytype1'][value='支付宝']")
+															.prop("checked",
+																	"checked");
+												} else if (data[9] = "微信") {
+													$(
+															":radio[name='spaytype1'][value='微信']")
+															.prop("checked",
+																	"checked");
+												} else {
+													$(
+															":radio[name='spaytype1'][value='银联']")
+															.prop("checked",
+																	"checked");
+												}
+												document
+														.getElementById("sendtype1").value = data[10];
+												//document.getElementById("sstatus1").value = data[11];
+												if (data[11] == "未审核") {
+													$(
+															":radio[name='sstatus1'][value='1']")
+															.prop("checked",
+																	"checked");
+												} else if (data[11] == "审核通过") {
+													$(
+															":radio[name='sstatus1'][value='2']")
+															.prop("checked",
+																	"checked");
+												} else {
+													$(
+															":radio[name='sstatus1'][value='3']")
+															.prop("checked",
+																	"checked");
+												}
+												document
+														.getElementById("smsg1").value = data[12];
+												document
+														.getElementById("sauser1").value = data[13];
+												document
+														.getElementById("dadate1").value = data[14];
+												document
+														.getElementById("ssname1").value = data[15];
+												document
+														.getElementById("ssaddress1").value = data[16];
+												document
+														.getElementById("ssphone1").value = data[17];
+												document
+														.getElementById("sscode1").value = data[18];
+
+											}
+										})
+							})
+		}
+
+		function four() {
+			$("form")[1].submit();
+			document.getElementById('light1').style.display = 'none';
+			document.getElementById('fade1').style.display = 'none';
+
+		}
+	</script>
+</body>
+</html>

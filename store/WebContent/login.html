@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<title>首页</title>
+<link rel="stylesheet" href="common/layui/css/layui.css">
+<link rel="stylesheet" href="common/css/sccl.css">
+<link rel="stylesheet" href="common/iconfont/1.0.1/iconfont.css" />
+</head>
+
+<body class="login-bg">
+	<div class="login-box">
+		<header>
+			<h1>用户登录界面</h1>
+		</header>
+		<div class="login-main">
+			<form action="" id="loinfom" enctype="multipart/form-data"
+				class="layui-form" method="post">
+				<input name="__RequestVerificationToken" type="hidden" value="">
+				<div class="layui-form-item">
+					<label class="login-icon"> <i class="layui-icon iconfont">&#xe612;</i>
+					</label> <input type="text" name="userName" lay-verify="userName"
+						autocomplete="off" placeholder="这里输入登录手机号" class="layui-input">
+				</div>
+				<div class="layui-form-item">
+					<label class="login-icon"> <i class="layui-icon iconfont">&#xe642;</i>
+					</label> <input type="password" name="password" lay-verify="password"
+						autocomplete="off" placeholder="这里输入密码" class="layui-input">
+				</div>
+				<div class="layui-form-item">
+					<div class="pull-left login-remember">
+						<label>记住帐号？</label> <input type="checkbox"
+							lay-filter="rememberMe" name="rememberMe" value="true"
+							lay-skin="switch" title="记住帐号">
+						<div class="layui-unselect layui-form-switch">
+							<i></i>
+						</div>
+					</div>
+					<div class="pull-right">
+						<button class="layui-btn layui-btn-primary" lay-submit=""
+							lay-filter="login">
+							登录<i class="layui-icon iconfont">&#xe602;</i>
+						</button>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</form>
+		</div>
+		<footer>
+			<p>电商网城用户登录界面</p>
+		</footer>
+	</div>
+	<img src="common/layui/images/face/0.gif" />
+	<script type="text/html" id="code-temp">
+        <div class="login-code-box">
+            <input type="text" class="layui-input" id="code" />
+            <img id="valiCode" src="http://192.168.1.115:8080/health/image.jsp" alt="验证码" />
+        </div>
+    </script>
+	<script type="text/javascript" src="common/lib/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript"
+		src="common/js/jquery.xdomainrequest.min.js"></script>
+	<script src="common/layui/layui.js"></script>
+	<script src="common/js/md5.js"></script>
+	<script src="common/js/sccl-util.js"></script>
+
+	<script>
+		$(function() {
+			jQuery.support.cors = true;
+			layui
+					.use(
+							[ 'layer', 'form' ],
+							function() {
+								var layer = layui.layer, $ = layui.jquery, form = layui
+										.form();
+
+								form.verify({
+									userName : function(value) {
+										if (value === '')
+											return '请输入手机号';
+									},
+									password : function(value) {
+										if (value === '')
+											return '请输入密码';
+									}
+								});
+
+								var errorCount = 4;
+								form.on('switch(rememberMe)', function(data) {
+									console.log(data.elem.checked); //是否被选中，true或者false
+									if (data.elem.checked == true) {
+										console.log("已选中");
+									} else {
+										console.log("没选中");
+									}
+									;
+								})
+								form
+										.on(
+												'submit(login)',
+												function(data) {
+													//window.location.href = "index.html";
+													if (errorCount > 5) {
+														layer
+																.open({
+																	title : '<img src="/common/layui/images/face/0.gif" alt="[害羞]">输入验证码',
+																	type : 1,
+																	content : document
+																			.getElementById('code-temp').innerHTML,
+																	btn : [ '确定' ],
+																	yes : function(
+																			index,
+																			layero) {
+																		var $code = $('#code');
+																		if ($code
+																				.val() === '') {
+																			layer
+																					.msg('输入验证码啦，让我知道你是人类。');
+																			isCheck = false;
+																		} else {
+																			var params = {};
+																			params.checkNum = $(
+																					"#code")
+																					.val();
+																			params.username = $(
+																					'input[name=userName]')
+																					.val();
+																			params.password = $(
+																					'input[name=password]')
+																					.val();
+																			console
+																					.log(params)
+																			submit(
+																					$,
+																					params);
+																			layer
+																					.close(index);
+																		}
+																	},
+																	area : [
+																			'250px',
+																			'150px' ]
+																});
+														$('#valiCode')
+																.off('click')
+																.on(
+																		'click',
+																		function() {
+																			this.src = myurl()
+																					+ '/health/image.jsp?v='
+																					+ new Date()
+																							.getTime();
+																		});
+													} else {
+														var params = {};
+														params.username = $(
+																'input[name=userName]')
+																.val();
+														params.password = $(
+																'input[name=password]')
+																.val();
+														submit($, params);
+													}
+
+													return false;
+												});
+
+							});
+
+			function submit($, params) {
+				var url = "http://localhost:8080/store/UserLogin";
+				ajax(url, params, "json", function(data) {
+					if (data == 1) {
+						history.go(-1);
+					} else if (data == -1) {
+						layer.msg('该账号已经被冻结');
+					} else {
+						layer.msg('登录失败');
+					}
+				})
+
+			}
+		})
+
+		function register() {
+			window.location.href = "register.html";
+		}
+	</script>
+</body>
+</html>
