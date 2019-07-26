@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--  参考 http://www.jeasyui.net/demo/504.html -->
+<title>商品列表</title>
+<!-- 载入easyui样式及图标样式  注意该一下路径-->
+<link rel="stylesheet" type="text/css"
+	href="../easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+<link rel="stylesheet" href="../common/css/sccl.css">
+<link rel="stylesheet" href="../common/css/layui.css">
+<link rel="stylesheet" href="../common/iconfont/1.0.1/iconfont.css" />
+<link rel="stylesheet" href="../common/css/healthmanagement.css" />
+<link rel="stylesheet" href="../common/layui/css/layui.css" media="all">
+<script src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+<script src="../common/layer/layer.js"></script>
+<!-- 载入jquery支持文件（必须写在其他js文件前）、easyui支持文件、easyui中文支持文件 -->
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+<style type="text/css">
+.my_img {
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	border: 1px solid #E5E5E5;
+	float: left;
+	position: relative;
+}
+
+.my_img:hover {
+	border-color: #009688;
+}
+
+.my_img img {
+	max-height: 100px;
+	max-width: 100px;
+	vertical-align: middle;
+}
+
+.rembox {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	background-color: #009688;
+	cursor: pointer;
+}
+
+.rembox:hover {
+	background-color: #cc3300;
+}
+
+body {
+	font-family: "微软雅黑";
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	/* z-index越大 就在上面 */
+	z-index: 1001;
+	-moz-opacity: 0.6;
+	opacity: .60;
+	filter: alpha(opacity = 60);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	/*border: 16px solid orange;*/
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+	<h2>商品列表</h2>
+
+	<div style="clear: both;"></div>
+	<div id="light" class="white_content" style="display: none">
+		<form method="post"
+			action="http://localhost:8080/store/ProductWeb?m=add">
+			<input type="hidden" id="pid" name="pid"> 请输入名称 :<input
+				type="text" name="name" /> <br>
+			<fieldset class="layui-elem-field layui-field-title"
+				style="margin-top: 20px;">
+				<legend>选择图片</legend>
+			</fieldset>
+			<div class="layui-box layui-upload-button">
+				<input type="file" name="image" class="layui-upload-file"> <span
+					class="layui-upload-icon"> <i class="icon-font">&#xe61f;</i>上传图片
+				</span>
+			</div>
+			<br> <input type="button" value="点击选择类别" id="bu" onclick="" />
+			<input type="text" name="cate" id="cate"
+				style="border: 0px; color: blue" value="" readonly="readonly" /><br>
+			请输入价格:<input type="text" name="price" /><br> 请输入日期:<input
+				type="Date" name="date" /><br> 请输入库存状态:<input type="radio"
+				name="state" value="1" checked="checked" id="have" />有货<input
+				type="radio" name="state" value="0" id="not" />无货<br> 请输入描述:<br>
+			<textarea rows="5" cols="50" name="des"></textarea>
+			<br> <input type="submit" value="提交">
+		</form>
+		<a href="productlist.html" onclick="two()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade" class="black_overlay"></div>
+
+	<div style="clear: both;"></div>
+	<div id="light1" class="white_content" style="display: none">
+		<form method="post"
+			action="http://localhost:8080/store/ProductWeb?m=edit">
+			<input type="hidden" id="pid1" name="pid1"> 请输入名称 :<input
+				type="text" name="name1" id="name1" /> <br>当前类别：<input
+				type="text" name="cate1" id="cate1" style="border: 0px; color: blue;width:50px"
+				value="" readonly="readonly" /><input
+				type="button" value="点击选择类别" id="bu1" onclick="" /> <br> 请输入价格:<input
+				type="text" name="price1" id="price1" /><br> 请输入日期:<input
+				type="Date" name="date1" id="date1" /><br> 请输入库存状态:<input
+				type="radio" name="state1" value="1" id="have" />有货<input
+				type="radio" name="state1" value="0" id="not" />无货<br> 请输入描述:<br>
+			<textarea rows="5" cols="50" name="des1" id="des1"></textarea>
+
+			<fieldset class="layui-elem-field layui-field-title"
+				style="margin-top: 20px;">
+				<legend>当前图片</legend>
+			</fieldset>
+			<img src="" id="img" name="img" width='180px' height='180px'></img>
+			<div class="layui-box layui-upload-button">
+				<input type="file" name="image1" id="image1"
+					class="layui-upload-file"> <span class="layui-upload-icon">
+					<i class="icon-font">&#xe61f;</i>上传图片
+				</span>
+			</div>
+			<br> <input type="submit" value="提交">
+		</form>
+		<a href="productlist.html" onclick="four()"><input type="button"
+			value="关闭"></a>
+	</div>
+	<div id="fade1" class="black_overlay"></div>
+
+
+	<div style="margin: 20px 0;"></div>
+	<table id="dg" title="商品列表" style="width: 950px; height: 600px"
+		data-options="rownumbers:true,singleSelect:true,pagination:true,url:'http://localhost:8080/store/ProductWeb?m=list',method:'get',toolbar:'#tb'">
+		<thead>
+			<tr style="">
+				<!--  field 和你javaean属性一样 -->
+				<th data-options="field:'nid',width:100">ID</th>
+				<th data-options="field:'sname',width:100">名称</th>
+				<th data-options="field:'image',width:120">图片</th>
+				<th data-options="field:'cate',width:100">类别</th>
+				<th data-options="field:'nprice',width:100">价格</th>
+				<th data-options="field:'date',width:100">上架日期</th>
+				<th data-options="field:'state',width:100">库存状态</th>
+				<th data-options="field:'sdescription',width:300">描述</th>
+				<th data-options="field:'simg',width:10">图片名</th>
+			</tr>
+		</thead>
+	</table>
+	<!-- 搜索框 -->
+	<div id="tb">
+		名称<input type="text" name="standard.name" id="qName" />  类别 <input
+			type="text" name="standard.cate" id="qCate" /> 库存状态 <select
+			name="standard.state" id="qState" style="width: 150px; height: 22px">
+			<option value=""></option>
+			<option value="1">有货</option>
+			<option value="0">无货</option>
+		</select> <a id="standardQueryBtn" href="javascript:void(0)"
+			class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			var pager = $('#dg').datagrid().datagrid('getPager');
+			$('#dg').datagrid('hideColumn', 'simg');
+			$('#dg').datagrid('hideColumn', 'nid');
+			pager.pagination({
+				buttons : [ {
+					iconCls : 'icon-remove',
+					handler : function() {
+						remove();
+					}
+				}, {
+					iconCls : 'icon-add',
+					handler : function() {
+						one();
+					}
+				}, {
+					iconCls : 'icon-edit',
+					handler : function() {
+						three();
+					}
+				} ]
+			});
+		})
+		$("#standardQueryBtn").click(function() {
+
+			$("#dg").datagrid("load", {
+				"standard.name" : $("#qName").val(),
+				"standard.state" : $("#qState").val(),
+				"standard.cate" : $("#qCate").val()
+			});
+
+		});
+		function one() {
+			document.getElementById('light').style.display = 'block';
+			document.getElementById('fade').style.display = 'block';
+		}
+
+		function two() {
+			$("form")[0].submit();
+			document.getElementById('light').style.display = 'none';
+			document.getElementById('fade').style.display = 'none';
+
+		}
+		function three() {
+			document.getElementById('light1').style.display = 'block';
+			document.getElementById('fade1').style.display = 'block';
+			var row = $('#dg').datagrid('getSelected');
+			//alert(row.simg);
+			$('#pid1').val(row.nid);
+			$('#name1').val(row.sname);
+			//	$('#image1').val(row.simg);
+			$('#cate1').val(row.cate);
+			$('#price1').val(row.nprice);
+			$('#date1').val(row.date);
+			if (row.state == "有货") {
+				$(":radio[name='state1'][value='1']")
+						.prop("checked", "checked");
+			} else {
+				$(":radio[name='state1'][value='1']")
+						.prop("checked", "checked");
+			}
+			$('#des1').val(row.sdescription);
+			//$('#img').val(row.image);
+			$('#img').attr('src', 'http://localhost:8080/' + row.simg);
+		}
+
+		function four() {
+			$("form")[1].submit();
+			document.getElementById('light1').style.display = 'none';
+			document.getElementById('fade1').style.display = 'none';
+
+		}
+		function remove() {
+			var row = $('#dg').datagrid('getSelected');
+			var msg = "您确定要删除该数据吗？";
+			if (confirm(msg) == true) {
+				$
+						.ajax({
+							url : "http://localhost:8080/store/ProductWeb?m=del",
+							type : "post",
+							data : {
+								"id" : row.nid
+							},
+							success : function(data) {
+								if (data == 0) {
+									alert("删除失败");
+								} else {
+									alert("删除成功");
+									window.location.href = "http://localhost:8080/store/page/productlist.html";
+								}
+							}
+						})
+			}
+		}
+		$('#bu').on('click', function() {
+			layer.ready(function() {
+				layer.open({
+					type : 2,
+					title : '选择类别',
+					maxmin : true,
+					area : [ '800px', '500px' ],
+					content : 'producttype2.html',
+				});
+			});
+		});
+		
+		$('#bu1').on('click', function() {
+			layer.ready(function() {
+				layer.open({
+					type : 2,
+					title : '选择类别',
+					maxmin : true,
+					area : [ '800px', '500px' ],
+					content : 'producttype2.html',
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

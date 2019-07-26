@@ -1,0 +1,12 @@
+.layui-input-tx{width: 60px;height: 30px;}
+.layui-form-item .layui-width-auto{width: auto;}
+#dms{width: 760px;min-height: 30px;margin: 0 auto;}
+.dms_title{width: 760px;height: 40px;border-bottom: 1px dashed #d4d4d4;padding: 5px;}
+.dms_title h5{font-size: 14px;line-height: 20px;color: #333;}
+.dms_title p{font-size: 12px;color: #333;line-height: 20px;}
+.mes_box{width: 760px;height: auto;border-bottom: 2px solid #D4D4D4;padding: 3px 0;}
+.dms_mes{width: 760px;height: auto;}
+.dms_mes h5{font-size: 16px;line-height: 26px;color: #333;}
+.dms_mes p{font-size: 14px;line-height: 24px;color: #333;}
+.dms_mes p img{max-height: 18px;vertical-align: middle;}
+.dms_mes img{max-width: 760px;}

@@ -1,0 +1,41 @@
+.oldban{width: 1210px;height: 800px;margin: 0 auto;}
+#oldbantab{width: 1210px;height: 30px;border-bottom: 2px solid #cc3300;padding-top: 20px;}
+
+#oldbantab p span{font-size: 14px;color: #fff;line-height: 30px;text-align: center;background-color: #d4d4d4;display: block;width: 100px;height: 30px;float: left;margin-right: 3px;cursor: pointer;}
+#oldbantab .tabcolor{background-color: #cc3300;}
+#oldbantab p span:hover{background-color: #cc3300;}
+#tablis{width: 1210px;min-height: 600px;}
+#tablis table{max-width: 1210px;border-left: 1px solid #D4D4D4;display: block;}
+#tablis table th{font-size: 12px;color: #333;line-height: 30px;border: 1px solid #D4D4D4;border-left: none;}
+#tablis table td{height: 30px;font-size: 12px;color: #333;line-height: 30px;text-align: center;border: 1px solid #D4D4D4;border-top:none ;border-left: none;}
+#tablis .lisoh{width: 60px;}
+#tablis .listh{width: 226px;max-width: 226px;}
+#tablis .lissh{width: 100px;}
+#tablis .lisfh{width: 252px;max-width: 252px;}
+#tablis .lislast{width: 172px;}
+td{word-break:keep-all;white-space:nowrap;overflow: hidden;}
+td span{padding: 3px 5px;margin: 0 2px;background-color: #33804b;color: #fff;cursor: pointer;}
+td span:hover{background-color: #cc3300;}
+td a{color: #333;}
+td a:hover{color: #cc3300;border-bottom: 1px solid #cc3300;}
+#tbodys{min-height: 100px;}
+#tbodys tr:hover{background-color: #F4F0E6;}
+.mylisp span{font-size: 14px;line-height: 50px;color: #333;margin: 0 10px;padding: 5px 10px;background-color: #fff;cursor: pointer;}
+.mylisp span a{color: #333;}
+.mylisp span a:hover{color: #fff;}
+.mylisp span:hover,.mylisp .mylisspan{color: #fff;background-color: #cc3300;}
+.mylisp .mylisspan a{color: #fff;}
+
+
+.cmaisp{font-size: 12px;color: #333;line-height: 40px;text-align: center;}
+.cmaisp span{font-size: 14px;color: #fff;line-height: 40px;background-color: #33804b;padding: 3px 10px;margin: 0 3px;}
+.cmaisp span:hover{background-color: #008b4f;cursor: pointer;}
+.cmaisp input{width: 30px;height: 22px;line-height: 22px;outline: none;border: 1px solid #d4d4d4;}
+
+#tablis{position: relative;}
+#tbodybox{width: 1210px;height: 90px;position: absolute;top: 85px;left: 0;display: none;}
+#tbodybox img{position: absolute;top: 0;left: 585px;max-width: 40px;max-height: 40px;}
+#tbodybox p{font-size: 14px;color: #333;line-height: 20px;text-align: center;padding-top: 44px;}
+
+
+

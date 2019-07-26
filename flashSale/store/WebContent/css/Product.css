@@ -1,0 +1,145 @@
+header{margin: 0 auto;}
+.heashopt{height: 50px;width:100%;border-bottom: 3px solid #cc3300;}
+.heashoptop{width: 1210px;height: 50px;margin: 0 auto;}
+.heashoptop a{font-size: 16px;line-height: 50px;padding: 15px 15px;background-color: #cc3300;color: #fff;}
+.shoppro{width: 1210px;min-height: 1000px;margin: 0 auto;position: relative;}
+#shoppronot{width: 1210px;height: 1000px;background-color: #fff;position: absolute;top: 0;left: 0;display: none;}
+#shoppronot{text-align: center;}
+#shoppronot img{width: 80px;height: 80px;}
+#shoppronot p{font-size: 14px;color: #333;line-height: 30px;}
+
+
+.shopproname{width: 1210px;height: 140px;background-color: #f4f4f4;}
+.shopproname a{font-size: 20px;line-height: 40px;color: #666;padding-left:15px;}
+.shopproname a:hover{color: #158DB0;}
+.shoppan{font-size: 12px;line-height: 40px;color: #fff;padding: 6px 5px;background-color: #bbbbbb;border-radius: 3px;margin: 0 2px;}
+.shoppan i{padding: 0;margin: 0;font-size: 14px;}
+.shoppan:hover{cursor: pointer;background-color: #ffb400;}
+.shopproname p{padding-left: 15px;}
+.shopproname p i{font-size: 12px;line-height: 20px;margin: 0;}
+.shopcityt{font-size: 12px;line-height: 20px;color: #666;}
+.shopcityt span{margin: 0 3px;color: #cc3300;}
+#telmyss span{font-size: 12px;color: #333;line-height: 30px;padding: 3px 5px;border: 1px solid #D4D4D4;cursor: pointer;margin-right: 3px;}
+#telmyss span:hover{color: #FF3366;border-color:#FF3366;}
+#telmyss a{padding-left: 0;}
+.shopnice{width: 1210px;height: 470px;}
+.shopimg{width: 378px;height: 450px;float: left;margin-left: 15px;}
+#demo{position: relative;float: left;}
+#demo:hover{cursor: move;}
+.shopimgnice{width: 720px;height: 400px;float: right;position: relative;}
+#collection{width: 80px;height: 30px;position: absolute;top: 40px;right: 120px;border: 1px solid #FF6633;}
+#collection p{font-size: 14px;color: #FF6633;line-height: 30px;text-align: center;}
+#collection p:hover{cursor: pointer;}
+#tyfspo{width: 82px;height: 20px;position: absolute;top: 80px;right: 120px;background-color: #FF6633;}
+#tyfspo p{font-size: 12px;color: #fff;line-height: 20px;text-align: center;}
+#collections{width: 80px;height: 30px;position: absolute;top: 40px;right: 120px;border: 1px solid #cc3300;}
+#collections p{font-size: 14px;color: #cc3300;line-height: 30px;text-align: center;}
+#collections p:hover{cursor: pointer;}
+#demo{width: 378px;height: 378px;}
+.shopimgbig{max-width: 378px;max-height: 378px;padding-top: 2px;}
+.shopcityimg{width: 350px;height: 52px;margin: 0 auto;padding-top: 5px;overflow: hidden;}
+.shopimg ul li{width: 50px;height: 50px;float: left;margin: 0 3px;border: 1px solid #fff;}
+.shopimg ul li img{width: 100%;height: 100%;}
+.shopimg ul li:hover{border: 1px solid #ff8b00;cursor: pointer;}
+.shopimgnice h5{font-size: 18px;color: #666;line-height: 26px;font-weight: normal;display: inline-block;height: 52px;overflow: hidden;margin-top: 5px;}
+#isotc{font-size: 12px;color: red;position: absolute;top: 0;left: -24px;padding: 1px 3px;}
+.shopimgnice p{font-size: 14px;color: #666;line-height: 30px;}
+.shopimgnice .shopcart{margin-bottom: 5px;}
+.shopimgnice p span{font-size: 18px;color: #cc3300;line-height: 30px;padding-right: 20px;}
+.shopimgnice .shopcart span{font-size: 12px;line-height: 30px;color: #666;padding: 5px;border: 2px solid #f4f4f4;}
+.shopimgnice .shopcart span:hover{cursor: pointer;border: 2px solid red;}
+.shopimgnice .shopcart .shopcartred{border: 2px solid red;}
+.shopgmsl{font-size: 14px;line-height: 30px;color: #666;}
+.shopsf{width: 20px;height: 20px;outline: none;border: none;}
+.shopsf:hover{cursor: pointer;}
+#shopval{width: 30px;height: 20px;margin: 0 3px;}
+#mysubmit,#mybutton,#mysu,#mtbn{cursor: pointer;width: 100px;height: 40px;margin-top: 20px;outline: none;border: none;font-size: 14px;color: #fff;line-height: 40px;font-weight: bold;margin-left: 3px;}
+#mybutton{background-color: #f7ac1f;margin: 0 5px;}
+#mysubmit{background-color: #158DB0;}
+.shopdetailed{width: 1210px;border: 1px solid #f4f4f4;}
+.shoptishi{width: 720px;background-color: #f4f4f4;word-wrap: break-word;padding: 0 5px;margin-top: 20px;}
+.shoptishi p{font-size: 12px;line-height: 20px;color: #666;}
+.shoptishi p span{font-size: 14px;color: #cc3300;}
+.shopxqfl{width:1210px;height:50px;border-bottom: 1px solid #33804b;}
+.shopxqfl a{font-size: 14px;line-height: 50px;padding: 16px 10px;color: #666;transition: all 0.5s ease;}
+.shopxqfl a:hover{background-color: #008b4f;color: #fff;cursor: pointer;}
+.shopxqfl .shopxqfla{background-color: #33804b;color: #fff;}
+.shopsuomi{width: 1210px;}
+.shopsuomi dl{width: 1210px;border: 1px solid #f5f5f5;float: left;}
+.shopsuomi dt{float: left;width: 140px;background-color: #f5f5f5;text-align: right;padding-right: 10px;font-size: 14px;line-height: 30px;}
+.shopsuomi dd{width:1050px;float: right;text-align: left;padding:0 5px 0 5px;font-size: 14px;line-height: 30px;}
+.shopsuomi h5{text-align: center;background-color: #f5f5f5;}
+.shopsuomi h5 span{font-size: 16px;padding: 2px 0;color: #666;line-height: 30px;}
+.shopsuomi p{font-size: 14px;color: #333;line-height: 20px;}
+.shopsuomi{display: block;}
+.shoppingj{width: 1210px;display: none;}
+.shoppjia{width: 1210px;min-height: 150px;border-bottom: 1px solid #d4d4d4;clear: both;}
+.shoppjial{width: 190px;min-height: 150px;float: left;padding-left: 10px;}
+.shoppjial .iconfont{padding: 0;margin: 0;font-size: 14px;color: #cc3300;line-height: 20px;}
+.shoppjial span{font-size: 12px;line-height: 20px;color: #666;}
+.shoppjial p{font-size: 12px;line-height: 50px;color: #666;text-align: center;}
+.shopimgnice s span{color: #D4D4D4;font-size: 14px;}
+.shoppjiaz{width: 810px;min-height: 150px;float: left;word-break: break-word;}
+.shoppjiar{width: 200px;min-height: 150px;float: right;}
+.shoppjiaz p{font-size: 12px;line-height: 16px;color: #666;padding: 5px 0;}
+.shoppjiaz p img{width: 18px;height: 18px;}
+.shoppjiaz .oicdiv{width: 800px;height: 42px;}
+.shoppjiaz .oicdiv img{width: 40px;height: 40px;margin: 0 2px;border: 1px solid #E76107;}
+.shoppjiaz .oicdiv img:hover{border-color: #BE7629;cursor: pointer;}
+.shoppjiar p{font-size: 12px;line-height: 50px;color: #666;]}
+.shoppjiar .iconfont{font-size: 14px;line-height: 20px;color: #cc3300;padding: 0;margin: 0;}
+.shopliuc{display: none;}
+.shopcity{width: 1210px;display: none;}
+.shopfleia{font-size: 14px;line-height: 36px;color: #666;padding: 8px 8px 9px 8px;}
+.shopfleiaback{background-color: #15a7b0;color: #fff;}
+.shopfleia:hover{background-color: #15a7b0;color: #fff;transition: all 0.5s ease;}
+.shopflei{width: 1150px;height: 36px;background-color: #f4f4f4;padding-left: 60px;}
+.shopcitycart{width: 1210px;height: 146px;border-bottom: 1px dashed #d4d4d4;transition: all 0.5s ease;}
+.shopcitycart:hover{width: 1208px;background-color: #f9f9f9;}
+.shopccartimg{display: block;width: 100px;height: 100px;margin: 22px;border: 1px solid #d4d4d4;float: left;}
+.shopccartp{height: 123px;width:400px;float: left;margin: 0 10px;padding-top: 22px;}
+.shopccartp a{font-size: 16px;line-height: 20px;color: #15A7B0;}
+.shopccartp p{font-size: 12px;line-height: 20px;color: #666;}
+.shopccartp p span{font-size: 14px;line-height: 20px;color: #cc3300;}
+.shopcartfy{padding-left:60px;width: 1150px;height: 36px;background-color: #F4F4F4;}
+.shopcartfy a{font-size: 12px;line-height: 36px;padding: 5px;border: 1px solid #158DB0;margin-right: 5px;}
+#shopcartfy{width: 25px;height: 25px;outline:none}
+.shopccarta{height: 124px;width:300px;float: left;margin: 0 10px;padding-top: 22px;}
+.shopccarta a{font-size: 14px;line-height: 20px;color: #666;}
+.shopccarta span{color: #158DB0;font-size: 16px;}
+.shopccarta p{font-size: 12px;line-height: 20px;color: #666;}
+.shopccarta .iconfont{font-size: 14px;line-height: 20px;padding: 0;margin: 0;color: #ff9d00;}
+.shopliuc img{padding: 20px 20px;}
+.shopxx{width: 1210px;margin-top: 15px;}
+.shopxx h5{font-size: 16px;line-height: 30px;color: #666;border-bottom: 1px solid #33804b;padding-left: 15px;}
+.shopxximg{width: 1210px;}
+.shopxximg img{max-width: 1210px;}
+.shopquanbpj{text-align: right;padding-right: 60px;}
+.shopquanbpj a{font-size: 14px;line-height: 24px;color: #000;}
+.shopquanbpj a:hover{color:#ff102c;}
+#mmm{z-index: 5;}
+#shoppj{width: 1210px;height: 50px;border-top: 2px solid #33804b;background-color: #f4f4f4;}
+#shoppj p{line-height: 50px;}
+#shoppj p span{font-size: 14px;color: #333;line-height: 50px;padding: 16px 5px;margin: 0 3px;}
+#shoppj p span:hover{background-color: #fff;cursor: pointer;}
+#shoppj .shopfff{background-color: #fff;}
+.cmaisp,.cmaisps{font-size: 12px;color: #333;line-height: 40px;text-align: center;}
+.cmaisp span,.cmaisps span{font-size: 14px;color: #fff;line-height: 40px;background-color: #33804b;padding: 3px 10px;margin: 0 3px;}
+.cmaisp span:hover,.cmaisps span:hover{background-color: #008b4f;cursor: pointer;}
+.cmaisp input,.cmaisps input{width: 30px;height: 22px;outline: none;border: 1px solid #d4d4d4;}
+#actcentent span{color: #333;font-size: 12px;margin: 0 2px;padding: 2px;border: 1px solid #33804b;}
+#shopmin{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 1001;display: none;}
+#shopbox{width: 300px;height: 100px;background-color: #fff;margin-left: -150px;margin-top: -70px;position: absolute;top: 50%;left: 50%;border: 1px solid #33804b;}
+#shopbox h5{font-size: 14px;color: #333;line-height: 60px;text-align: center;}
+#shopbox p{font-size: 12px;color: #333;line-height: 20px;text-align: center;}
+#shopbox p span{padding: 4px 8px;color: #fff;background-color: #33804b;}
+#shopbox p span:hover{cursor: pointer;}
+#imgmin{width: 80%;height: 80%;position: fixed;top: 10%;left: 10%;text-align: center;display: none;}
+#imgmin img{max-height: 100%;max-width: 100%;}
+
+#body{position: relative;}
+#bigmore{width: 100%;height: 100%;background-color: #fff;position: absolute;top: 320px;left: 0;display: none;}
+#shopnot{width: 1000px;min-height: 300px;margin: 0 auto;}
+#shopnot h5{font-size: 20px;color: #333;line-height: 40px;text-align: center;}
+#shopnot p{font-size: 14px;color: #333;line-height: 20px;text-align: center;}
+#shopnot p span{color: #cc3300;}

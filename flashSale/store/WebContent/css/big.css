@@ -1,0 +1,112 @@
+*{margin: 0;padding: 0;}
+a{text-decoration: none;}
+ul{list-style: none;}
+body{font-family: "微软雅黑";}
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1470894879_19265.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1470894879_19265.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1470894879_19265.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1470894879_19265.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1470894879_19265.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}                   
+img{border: none;}               
+.iconfont{font-family:"iconfont";font-size: 20px;font-style: normal;margin: 0 10px;color: #cc3300;}                                                               
+.dengl{width: 100%;height: 36px;background-color: #f4f4f4;}
+.dengl div{width: 1210px;height: 36px;margin: 0 auto;color: #666666;}
+.dengul a{color: #666;padding-bottom: 5px;margin-right: 3px;}
+.dengul a:hover{color: #f36154;border-bottom: 3px solid #84d2b8;}
+.dengul li{float: left;font-size: 11px;line-height: 36px;}
+.dengfl{margin-left: 400px;}
+.dengo{padding: 0 10px;}
+.zhandlog{width: 1210px;height: 128px;margin: 0 auto;}
+.logsu{width: 1210px;height:92px;padding-top: 12px;}
+.logsu img{width: 212px;height:92px;display: block;}
+.logo{width: 212px;height:92px;float: left;}
+.zhan{width: 230px;height:92px;float: left;}
+.sosu{width: 540px;height:92px;float: left;}
+.logtex{width: 460px;height: 32px;border: 2px solid #cc3300;outline:none;position: absolute;top: 0;left: -50px;line-height: 32px;background-color: #fff;}
+.sosu .searchbig{margin-top: 30px;position: relative;}
+
+.logtex{width: 410px;height: 32px;border: 2px solid #cc3300;outline:none;position: absolute;top: 0;left: 2px;line-height: 32px;border-left:none ;}
+#shophover{position: absolute;top: 0;left: -58px;width: 60px;height: 36px;overflow: hidden;background-color: #fff;}
+#shophover li{font-size: 14px;color: #333;line-height: 32px;width: 50px;padding-right: 10px;height: 32px;text-align: right;cursor: pointer;}
+#shoplik li{border: 2px solid #cc3300;}
+#shoplikmin{border: 1px solid #cc3300;border-top: none;}
+#shoplikmin li{text-align: center;padding: 0;width: 60px;}
+#shoplik{border: none;border-right: 1px solid #cc3300;}
+#shoplikmin li:hover{color: #fff;background-color: #cc3300;}
+#login_btn{margin-left: 10px;cursor: pointer;}
+#login_btn:hover{color: #cc3300;border-bottom: 1px solid #CC3300;}
+.hover_mous{width: 20px;height: 36px;position: absolute;top: 0;left: 3px;line-height: 36px;}
+.hover_mous img{width: 12px;height: 6px;margin-top: 15px;margin-left: 7px;}
+
+.hover_mous #hover_mous_b{display: none;margin-top: 10px;}
+
+.logsubt{cursor: pointer;}
+
+.sosu .logsub{color:#fff;width: 84px;height: 36px;background-color: #cc3300;outline:none;border: #cc3300;text-align: center;margin-left: -5px;position: absolute;top: 0;right: 42px;}
+.logsub:hover{cursor:pointer}
+.sokj{margin-top: 66px;}
+.sokj a{font-size: 12px;line-height:24px;color:#666;padding: 0 5px;border-right: 1px solid red;}
+.sokj a:hover{color: #cc3300;}
+.sokj .sokjl{border: none;}
+footer,#footer{width: 1210px;height:auto;margin: 0 auto;padding-top: 30px;}
+.foozsion{width: 1210px;height: 112px;margin: 0 auto;}
+.foozsion ul{width:1000px;margin: 0 auto;}
+.foozsion li{width: 200px;height: 112px;float: left;text-align: center;}
+.foozsion .iconfoo{font-size: 40px;margin: 0;color: #33804b;}
+.iconfoo h5{font-family: "微软雅黑";font-size: 18px;color: #666;line-height: 26px;}
+.iconfoo p{font-family: "微软雅黑";font-size: 14px;color: #B7B7B7;}
+.zdxihua{height: 214px;width: 1210px;background-color: #f4f4f4;margin: 0 auto;}
+.zdxihua ul{float: left;padding: 0 55px;text-align: center;}
+.zdxihua a{font-size: 14px;color: #6a6a6a;line-height: 26px;}
+.zdxihua .zdxihuafist{font-size: 16px;color: #262626;line-height: 44px;}
+.zdxihlostul{margin-top: 20px;}
+.zdxihlostul li{font-size: 16px;line-height: 30px;}
+.zdxihua a:hover{color: red;}
+.zhaoysm{width: 1210px;max-height: 180px;margin: 0 auto;text-align: center;}
+.zhaoysm a{font-size: 12px;line-height: 30px;color: #666;padding: 0 6px;}
+.zhaoysm a:hover{color: red;}
+.zhaoysm p{font-size: 12px;color: #666;line-height: 20px;}
+.zhaoysm img{width: 112px;height: 47px;margin-top: 30px;}
+.cebianbig{width:30px;height: 100%;position: fixed;z-index: 999;background-color: #4a4e56;top: 0;right: 0px;}
+.cebianbigmy{width: 30px;height: 50px;}
+.cebianbigmy:hover{cursor:pointer}
+.cebianbigtop{width: 30px;height: 50px;position: fixed;bottom: 100px;right: 0px;}
+.cebianbigmy .iconfont{line-height:50px;font-family:"iconfont";font-size: 24px;color: red;font-style: normal;margin-left: 3px;}
+.cebianbigmy:hover{background-color: #fff;}
+.cebianbigtop .iconfont{font-family:"iconfont";font-size: 24px;color: red;font-style: normal;margin-left: 3px;}
+.cebianbigtop .iconfont:hover{color: #fff;cursor:pointer;}
+.cebianone{margin-top: 300px;}
+
+.bodycity{width: 42px;height: 168px;position: fixed;top: 50%;left: 15%;text-align: center;}
+.bodycity div{width: 40px;height: 40px;border: 1px solid #f4f4f4;line-height: 20px;font-size: 14px;cursor:pointer;}
+.bodycity div:hover{background-color: #84d2b8;color: #fff;}
+.bodycity .bodycitycoler{background-color: #84d2b8;color: #fff;}
+.bodycity a{color: #333;}
+.bodycity{display: none;}
+
+#min_sel_t{width: 410px;height: auto;position: absolute;top: 36px;left: 1px;border: 1px solid #CC0033;background-color: #fff;border-top: none;display: none;z-index: 3;}
+#min_sel_t ul li{width: 400px;height: 30px;font-size: 12px;color: #333;line-height: 30px;padding: 0 5px;cursor: pointer;}
+#min_sel_t ul .hovercolo{background-color: #CC0033;color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

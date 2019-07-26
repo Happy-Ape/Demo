@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title>商品种类</title>
+<!-- 载入easyui样式及图标样式  注意该一下路径-->
+<link rel="stylesheet" type="text/css"
+	href="../easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+<!-- 载入jquery支持文件（必须写在其他js文件前）、easyui支持文件、easyui中文支持文件 -->
+ <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+ <script type="text/javascript">
+ var $jq=$.noConflict(true);
+ </script>
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+
+  <script type="text/javascript" src="../common/layer/layer.js"></script>
+</head>
+<style>
+/*	折叠层*/
+body {
+	font-family: "微软雅黑";
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	/* z-index越大 就在上面 */
+	z-index: 1001;
+	-moz-opacity: 0.6;
+	opacity: .60;
+	filter: alpha(opacity = 60);
+}
+
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	/*border: 16px solid orange;*/
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+</style>
+
+<body>
+	<h2>商品种类</h2>
+	<!-- 	<ul style="float: left;" id="tt" data-options="checkbox:true"></ul> 
+		 -->
+<!-- 这个ul元素用于生成树形控件 -->
+<ul id="tt" data-options="checkbox:true"></ul>
+
+<!-- 单击右键展示的菜单 -->
+<div id="mm" class="easyui-menu" style="width: 120px;">
+	<div onclick="menuHandler(this)" name="add"
+		data-options="iconCls:'icon-add'">添加子节点</div>
+	<div onclick="menuHandler(this)" name="update"
+		data-options="iconCls:'icon-add'">修改节点</div>
+	<div onclick="menuHandler(this)" name="delete"
+		data-options="iconCls:'icon-remove'">删除节点</div>
+</div>
+<div style="clear: both;"></div>
+<!-- 弹出层 start -->
+<div id="light" class="white_content">
+	<form method="post"
+		action="http://localhost:8080/store/ProductTypeWeb?m=add">
+		<input type="hidden" id="pid" name="pid"> 请输入菜单名字 :<input
+			type="text" name="name" /> <br> <input type="submit" value="提交">
+	</form>
+	<a href="producttype2.html" onclick="two()"><input type="button"
+		value="关闭"></a>
+</div>
+<div id="fade" class="black_overlay"></div>
+
+<div id="light1" class="white_content">
+	<form method="post"
+		action="http://localhost:8080/store/ProductTypeWeb?m=update">
+		<input type="hidden" id="pid1" name="pid1"> 请输入菜单名字 :<input
+			type="text" name="name1" id="name1" /><br> <input type="submit"
+			value="提交">
+	</form>
+	<a href="producttype2.html" onclick="four()"><input type="button"
+		value="关闭"></a>
+</div>
+<div id="fade1" class="black_overlay"></div>
+
+<div id="light2" class="white_content">
+	<form method="post"
+		action="http://localhost:8080/store/ProductTypeWeb?m=addHeader">
+		请输入菜单名字 :<input type="text" name="name2" id="name2" /> <br> <input
+			type="submit" value="提交">
+	</form>
+	<a href="producttype2.html" onclick="six()"><input type="button"
+		value="关闭"></a>
+</div>
+<div id="fade2" class="black_overlay"></div>
+<!-- 弹出层 end -->
+<button onclick="getCheck()" id="hq">获取选中</button>
+<button onclick="five()">添加一级节点</button>
+</body>
+<script>
+	$(function() {
+		$('#tt').tree({
+			lines : true,
+			url : 'http://localhost:8080/store/ProductTypeWeb?m=treelist',
+			onContextMenu : function(e, node) {
+				e.preventDefault();
+				$('#tt').tree('select', node.target);
+				$('#mm').menu('show', {
+					left : e.pageX,
+					top : e.pageY
+				});
+			}
+		});
+	});
+
+	function menuHandler(item1) {
+		var tree = $("#tt");
+		var name = $(item1).attr("name");
+		var node = tree.tree("getSelected");
+		if (name === "add") {
+			$('#pid').val(node.id);
+			one();
+		} else if (name === "update") {
+			//修改
+			$('#pid1').val(node.id);
+			$('#name1').val(node.text);
+			three();
+		} else if (name === "delete") {
+			var msg = "您确定要删除该数据吗？";
+			$.get("http://localhost:8080/store/ProductTypeWeb?m=getPid", {
+				"id" : node.id
+			}, function(data, sattus, xmlhttp) {
+				if (data == 0) {
+					msg = "该操作会删除该节点下所有节点，是否继续？"
+				}
+				if (confirm(msg) == true) {
+					$.get("http://localhost:8080/store/ProductTypeWeb?m=del", {
+						"id" : node.id
+					}, function(data, sattus, xmlhttp) {
+						tree.tree("remove", node.target)
+					});
+
+				}
+			});
+		}
+	}
+	function diag(item) {
+		var str = prompt(item, "");
+		return str;
+	}
+
+	function one() {
+		document.getElementById('light').style.display = 'block';
+		document.getElementById('fade').style.display = 'block'
+	}
+
+	function two() {
+		$("form")[0].submit();
+		document.getElementById('light').style.display = 'none';
+		document.getElementById('fade').style.display = 'none'
+
+	}
+	function three() {
+		document.getElementById('light1').style.display = 'block';
+		document.getElementById('fade1').style.display = 'block'
+	}
+
+	function four() {
+		$("form")[1].submit();
+		document.getElementById('light1').style.display = 'none';
+		document.getElementById('fade1').style.display = 'none'
+
+	}
+	function five() {
+		document.getElementById('light2').style.display = 'block';
+		document.getElementById('fade2').style.display = 'block'
+	}
+
+	function six() {
+		$("form")[2].submit();
+		document.getElementById('light2').style.display = 'none';
+		document.getElementById('fade2').style.display = 'none'
+
+	}
+	function getCheck() {
+		var index = parent.layer.getFrameIndex(window.name);
+		var nodes = $('#tt').tree('getSelected');
+		var nodes2 = $('#tt').tree('getChecked', 'indeterminate');
+		//console.log(nodes.text);
+		parent.$('#cate').val(nodes.text);
+		parent.$('#cate1').val(nodes.text);
+		parent.layer.close(index);
+	}
+</script>
+</html>

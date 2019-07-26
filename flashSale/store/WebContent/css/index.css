@@ -1,0 +1,107 @@
+#header{width: 1210px;min-height: 440px;padding-top:23px;margin: 0 auto;}
+.headh{height: 33px;border-bottom: 2px solid #cc3300;width: 1210px;margin: 0 auto;}
+.headh a{font-size:16px;color: #666;padding: 12px 35px;margin: 0;}
+.headh .heafenl{background-color:#cc3300;color: #fff;}
+.heafots{font-family:"iconfont";color: #fff;font-style: normal;margin-right: 10px;}
+.headh a:hover{background-color: #cc3300;color: #fff;}
+.headh .heaxz{background-color: #cc3300;color: #fff;}
+.heafenlx{width: 196px;height: 395px;background-color: #cc3300;float: left;}
+.heagg{width: 247px;height: 393px;float: left;border: 1px solid #f4f4f4;}
+.heafenlx li{padding: 8px 35px 8px 35px;margin-top: 6px;}
+.heafenlx li a{font-size: 16px; color: #fff;line-height: 20px;}
+.heafenlx li:hover{background-color: #158db0;}
+.healunb{width: 754px;height: 390px;float: left;margin: 5px 5px 0 5px;position: relative;overflow: hidden;}
+.healunb img{width: 754px;height: 390px;float: left;}
+.healunb li{float: left;}
+
+#picle{width: 30px;height: 50px;background-color: #008080;position: absolute;top: 167px;left: 0;cursor: pointer;}
+#picri{width: 30px;height: 50px;background-color: #fff;position: absolute;top: 167px;right: 0;cursor: pointer;}
+
+.heaone,.heatwo{width: 26px;height: 6px;float: left;margin-right: 5px;background-color: #d4d4d4;}
+.heaone{background-color: red;}
+.healbao{position: absolute;bottom: 10px;left: 300px;}
+.healbao div:hover{cursor:pointer}
+.heatab{width: 100%;height: 40px;background-color: #f4f4f4;margin-top: 5px;}
+.heatab p{float: left;font-size: 16px;line-height: 38px;padding: 0 10px 0 10px;margin-right: 2px;}
+.heatab p:hover{background-color: #fff;cursor:pointer;}
+.heagongg{width: 234px;height: 350px;padding-top: 2px;margin-left: 7px;overflow: hidden;}
+.heagongg li{width: 100%;height: 48px;border-bottom: 1px solid #158DB0;overflow: hidden;}
+.heagongg li a{line-height: 48px;color: #666;font-size: 14px;}
+.heagongg li a:hover{color: #cc3300;border-bottom: 1px solid #cc3300;}
+.headingd{display: none;transition: all 1s ease;}
+.headingd li a{line-height: 20px;font-size: 12px;}
+.headingd li a span{color: #cc3300;}
+.headingd li .ometime{font-size: 12px;color: #33804b;line-height: 20px;float: right;}
+#banner{width: 1210px;min-height: 1012px;margin: 0 auto;margin-top: 1px;}
+#shop{width: 1207px;height: 120px;overflow: hidden;position: relative;}
+
+#shop table{width: 1208px;text-align: center;table-layout:fixed; word-break: break-all; word-wrap: break-word;border-collapse: collapse;margin-top: 10px;transition: all 0.5s ease;}
+#shop table tbody{height: 100px;}
+#shop table tbody tr{height: 100px;overflow: hidden;}
+#shop table td{border: 1px solid #D4D4D4;height: 100px;width: 190px;font-weight: bold;padding: 0 5px;overflow: hidden;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;color: #D4D4D4;background-size: 100% 100%;}
+#shop table td a{font-size: 16px;color: #158DB0;white-space:nowrap;transition: all 0.2s ease;}
+#shop table td a:hover{font-size: 18px;color: #cc3300;}
+#shopleft{width: 24px;height: 92px;position: absolute;top: 15px;left: 0;background-color: #d4d4d4;display: none;}
+#shopright{width: 24px;height: 92px;position: absolute;top: 15px;right: 0;background-color: #d4d4d4;display: none;}
+#shopleft img,#shopright img{margin: 0 2px;height: 92px;}
+#shopright:hover,#shopleft:hover{cursor: pointer;}
+
+.banyouh{width: 1210px;height: 270px;}
+.banyouho{width: 238px;height:270px;float: left;margin: 2px;position: relative;}
+.banyouho img{width: 238px;height:270px;display: block;}
+.banyouho span{display:block;width: 236px;height: 40px;background-color: rgba(0,0,0,0.1);text-align: center;color:#fff;font-size:14px;line-height: 40px;position: absolute;bottom: 0;left: 0;}
+.banlouc{width: 1210px;min-height: 600px;margin-top: 2px;}
+
+.medicinal{width: 1210px;height: 500px;margin: 10px 0;padding-bottom: 20px;}
+.medicinal h5{line-height: 40px;border-bottom: 2px solid #33804b;padding: 0 10px;}
+.medicinal h5 span{font-size: 16px;line-height: 40px;color: #333;}
+.medicinal h5 .medicinalri{float: right;padding: 1px 5px;font-weight: normal;margin: 0 2px;}
+#banlconetcity h5{border-color:#7d351d;}
+#banlconetcity h5 .medicinalri:hover{background-color:#7d351d}
+#banlconetcity .medicinalcolor,#banlconetcity .medicinalspan{background-color:#7d351d}
+
+#banlconescity h5{border-color:#9fb57c;}
+#banlconescity h5 .medicinalri:hover{background-color:#9fb57c}
+#banlconescity .medicinalcolor,#banlconescity .medicinalspan{background-color:#9fb57c}
+
+.medicinalri:hover{cursor: pointer;background-color: #33804b;color: #fff;}
+.medicinal h5 .medicinalcolor{background-color: #33804b;color: #fff;}
+.medicinal h5 .medicinalspan{padding: 12px 10px;background-color: #33804b;color: #fff;}
+.medicinalbox{width: 1210px;height: 450px;}
+.boxmin{width: 285px;height: 450px;float: left;}
+.boxmax{width: 925px;height: 450px;float: left;}
+.boxmintop{width: 283px;height: 172px;border: 1px solid #e5e5e5;text-align: center;position: relative;}
+.boxmintop .banlangoo{width: 200px;height: 120px;margin: 0 auto;margin-top: 3px;}
+.boxmintop img{max-width: 200px;max-height: 120px;}
+.boxmintop p{font-size: 12px;line-height: 20px;color: #333;display: inline-block;width: 283px;height: 20px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.boxmintop p span{color: red;font-size: 16px;}
+.boxminbom{width: 283px;height: 274px;border: 1px solid #e5e5e5;text-align: center;}
+.boxmintop:hover,.boxminbom:hover,.boxmaxmin:hover{box-shadow: 0 0 3px #e5e5e5;}
+.safter{width:100%;height:100%;background-color: rgba(255,255,255,0.4);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7Fffffff,endColorstr=#7Fffffff);;position: absolute;top: 0;left: 0;}
+.boxminbom,.boxmaxmin{position: relative;}
+.safter{display: none;}
+
+
+.boxmaxmin{width: 183px;height: 223px;border: 1px solid #e5e5e5;float: left;text-align: center;}
+.boxminbom .banlangoo{height: 210px;width: 220px;margin: 0 auto;margin-top: 10px;}
+.boxminbom img{max-height: 210px;max-width: 220px;}
+.boxminbom p{font-size: 14px;line-height: 20px;color: #333;display: inline-block;width: 283px;height: 20px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.boxminbom p span{color: red;font-size: 18px;}
+.boxmaxmin .banlangoo{width: 160px;height: 160px;margin: 0 auto;margin-top: 6px;}
+.boxmaxmin img{max-width: 160px;max-height: 160px;}
+.boxmaxmin p{font-size: 12px;line-height: 20px;color: #333;display: inline-block;width: 183px;height: 20px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.boxmaxmin p span{color: red;font-size: 16px;}
+.medicinalbox{display: none;}
+.medicinalshow{display: block;}
+
+.heafenlx{position: relative;}
+.heafotxx{width: 1012px;min-height: 394px;background-color: #fff;position: absolute;top: 0;left: 196px;z-index: 99;border: 1px solid #158DB0;border-top: none;padding: 10px 0;display: none;}
+.heafotxx h4{border-bottom: 1px solid #e2e2e2;padding:10px 0px;}
+.heafotxx h4 a{color: #158DB0;font-size: 22px;line-height: 40px;margin-left: 30px;padding: 0 0 0px 15px;border-left: 8px solid #158DB0;}
+.heafotxx ul li a{color: #666;font-size: 14px;line-height: 18px;padding: 0 8px 0 0;}
+.heafotxxli p a{font-size: 16px;color: #158DB0;line-height: 24px;}
+#heafenul .heafotxxli:hover{background-color: #ececec;transition: all 0.5s ease }
+.heafotxxli a:hover{color: red;}
+
+
+
